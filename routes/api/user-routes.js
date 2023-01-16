@@ -17,14 +17,14 @@ router
   .get(getAllTheUsers)
   .post(createAUser);
 
-// Set up GET one, PUT, and DELETE at /api/users/:id
+// /api/users/:id
 router
   .route('/:id')
   .get(getUserByAnId)
   .put(updateAUser)
   .delete(deleteAUser);
 
-//  /api/users/:id/friends/:friendId
+// /api/users/:id/friends/:friendId
 router
   .route('/:id/friends/:friendId')
   .post(addAFriend)
