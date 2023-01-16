@@ -23,7 +23,7 @@ const userController = {
   },
 
   // get one user by id
-    getUserByAnId({ params }, res) {
+  getUserByAnId({ params }, res) {
     User.findOne({ _id: params.id })
       .populate({
         path: 'comments',
@@ -103,10 +103,7 @@ const userController = {
   },
 
   removeAFriend({ params }, res) {
-    User.findOneAndUpdate(
-      { _id: params.id },
-      { new: true }
-    )
+    User.findOneAndUpdate({ _id: params.id }, { new: true })
       .then((dbUserData) => res.json(dbUserData))
       .catch((err) => res.json(err));
   },
