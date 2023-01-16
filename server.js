@@ -17,6 +17,8 @@ mongoose.connect(
     useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    retryWrites: true,
+    w: "majority"
   }
 );
 
