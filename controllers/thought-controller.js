@@ -96,7 +96,7 @@ const thoughtController = {
   removeAReaction({ params }, res) {
     console.log('wegothere');
 
-    Thought.findOneAndRemove(
+    Thought.findOneAndUpdate(
       { _id: params.id },
       { $pull: { reactions: { reactionId: params.reactionId } } },
       { new: true }
