@@ -64,7 +64,7 @@ const thoughtController = {
 
   // delete thought
   deleteAThought({ params }, res) {
-    Thought.findOneAndUpdate({ _id: params.id })
+    Thought.findOneAndRemove({ _id: params.id })
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
           res
@@ -96,7 +96,7 @@ const thoughtController = {
   removeAReaction({ params }, res) {
     console.log('wegothere');
 
-    Thought.findOneAndUpdate(
+    Thought.findOneAndRemove(
       { _id: params.id },
       { $pull: { reactions: { reactionId: params.reactionId } } },
       { new: true }
